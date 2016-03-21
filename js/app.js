@@ -55,9 +55,13 @@ $(".cell").on("click",function() {
                           [0,4,8],
                           [2,4,6] ];
 
+
+
+
   for (var i = 0; i < winCombinations.length; i++) {
     var xWinCount = 0;
     var oWinCount = 0;
+
     for (j = 0; j < winCombinations[i].length; j++) {
       var index = winCombinations[i][j];
       if (newBoard[index] === "X") {
@@ -66,11 +70,8 @@ $(".cell").on("click",function() {
         oWinCount += 1;
       }
     }
-
-    if (turns === 9 && xWinCount !== 3 && oWinCount !== 3) {
-      alert ("Cat's Game. No one wins.");
-      break;
-    } else if (xWinCount === 3) {
+  
+    if (xWinCount === 3) {
       alert (playerX + " is the Winner!");
       scoreX++;
       $(".playerX").text("X - " + playerX + ", Score: " + scoreX);
@@ -78,8 +79,30 @@ $(".cell").on("click",function() {
       alert (playerO + " is the Winner!");
       scoreO++;
       $(".playerO").text("O - " + playerO + ", Score: " + scoreO);
+    } else if (turns === 9 && xWinCount !== 3 && oWinCount !== 3) {
+      alert ("Cat's Game. No one wins.");
+      break;
     }
-  }
+}
+
+    // if (turns === 9 && xWinCount !== 3 && oWinCount !== 3) {
+    //   alert ("Cat's Game. No one wins.");
+    //   break;
+    // } else if (xWinCount === 3) {
+    //   alert (playerX + " is the Winner!");
+    //   scoreX++;
+    //   $(".playerX").text("X - " + playerX + ", Score: " + scoreX);
+    // } else if (oWinCount === 3) {
+    //   alert (playerO + " is the Winner!");
+    //   scoreO++;
+    //   $(".playerO").text("O - " + playerO + ", Score: " + scoreO);
+    // }
+
+
+  // } if (turns === 9 && xWinCount !== 3 && oWinCount !== 3) {
+  //   alert ("Cat's Game. No one wins.");
+  // }
+
 });
 
 //clear button clears the game and score
