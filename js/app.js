@@ -3,20 +3,39 @@ $(document).ready(function() {
   // all code to manipulate the DOM
   // goes inside this function
 
+var playerX;
+var playerO;
+
+  $(".playerX").on("click", function () {
+    playerX = prompt("Please enter your name");
+    $(this).text("X - " + playerX + ", Score: " + scoreX);
+    return playerX;
+  });
+
+  $(".playerO").on("click", function () {
+    playerO = prompt("Please enter your name");
+    $(this).text("O - " + playerO + ", Score: " + scoreO);
+    return playerO;
+  });
+
 
 var newBoard = [];
 var turns = 0;
+var scoreX = 0;
+var scoreO = 0;
 
 
 $(".cell").on("click",function() {
   if ( ($(this).text() !== "X") && ($(this).text() !== "O") ) {
     if (turns % 2 === 0) {
       $(this).text("X");
+      $(this).addClass("xMove");
       var xIndex = $(".cell").index(this);
       newBoard[xIndex] = "X";
       turns += 1;
     } else if (turns % 2 !== 0) {
         $(this).text("O");
+        $(this).addClass("oMove");
         var oIndex = $(".cell").index(this);
         newBoard[oIndex] = "O";
         turns += 1;
@@ -49,21 +68,43 @@ $(".cell").on("click",function() {
     }
 
     if (turns === 9 && xWinCount !== 3 && oWinCount !== 3) {
-      alert ("Cat's Game");
+      alert ("Cat's Game. No one wins.");
       break;
     } else if (xWinCount === 3) {
-      alert ("X is Winner");
+      alert (playerX + " is the Winner!");
+      scoreX++;
+      $(".playerX").text("X - " + playerX + ", Score: " + scoreX);
     } else if (oWinCount === 3) {
-      alert ("O is Winner");
+      alert (playerO + " is the Winner!");
+      scoreO++;
+      $(".playerO").text("O - " + playerO + ", Score: " + scoreO);
     }
   }
 });
 
-$(".btn").on("click", function() {
-  $(".cell").empty();
-  turns = 0;
-  newBoard = [];
+//clear button clears the game and score
+$(".clear").on("click", function() {
+    $(".cell").empty();
+    turns = 0;
+    newBoard = [];
+    $(".cell").removeClass("xMove oMove");
+  });
+
+$(".quit").on("click", function() {
+  var quit = confirm("Are you sure you want to quit this AMAZING game?");
+  if (quit === true) {
+    $(".cell").empty();
+    turns = 0;
+    newBoard = [];
+    $(".cell").removeClass("xMove oMove");
+    scoreX = 0;
+    $(".playerX").text("Add Player X, Score: " + scoreX);
+    scoreO = 0;
+    $(".playerO").text("Add Player O, Score: " + scoreO);
+  }
 });
+
+
 
 
 

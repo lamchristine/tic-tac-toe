@@ -10,9 +10,14 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: 'strawberry_muffins';
+  src: url(strawberry_muffins_demo.ttf);
+}
+
 
 body {
-background-color: #8585ad;
+background-color: #03A89E;
 color: #333;
 }
 
@@ -25,9 +30,10 @@ color: #333;
 .col-md-4 {
   border: 1px dashed black;
   height: 150px;
-  background-color: #5c5c8a;
+  background-color: #96CDCD;
   border: outset;
 }
+
 
 
 h1 {
@@ -39,9 +45,7 @@ h1 {
 .cell {
   font-family: bubblegum;
   font-size: 100px;
-  padding-left: 48px;
-  padding-top: 8px;
-  color:  yellow;
+  padding-left: 50px;
 
 }
 
@@ -49,12 +53,39 @@ h1 {
   background-color:  #d1d1e0;
 }
 
-.btn {
+.btn.btn-lg.center-block{
   margin-top: 10px;
   background-color: #737373;
   color: white;
+  font-family: strawberry_muffins;
+  font-size: 20px;
 }
 
-.btn:hover{
+.btn.btn-lg.center-block:hover{
   background-color: #cccccc;
+}
+
+
+.xMove {
+  background-color: #008B8B;
+  color: #F0FFFF;
+}
+
+.oMove {
+  background-color: #7A8B8B;
+  color: #F0FFFF;
+}
+
+
+.btn.btn-primary.btn-lg  {
+  margin-top: 125px;
+  margin-left: 50px;
+  background: none;
+  border: 2px solid #00FA9A;
+  font-family: strawberry_muffins;
+  font-size: 20px;
+}
+
+.btn.btn-primary.btn-lg:hover{
+  background-color: #00FA9A;
 }
