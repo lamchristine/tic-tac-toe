@@ -1,8 +1,60 @@
+@font-face {
+  font-family: 'sketch-3d';
+  src: url(sketch_3D.woff);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'bubblegum';
+  src: url(Bubblegum.ttf);
+  font-weight: bold;
+}
+
+
+body {
+background-color: #8585ad;
+color: #333;
+}
+
+
 #board {
   margin-top: 10px;
 }
 
-.box {
-  border: 1px solid black;
+
+.col-md-4 {
+  border: 1px dashed black;
   height: 150px;
+  background-color: #5c5c8a;
+  border: outset;
+}
+
+
+h1 {
+  color: #333;
+  font-family: sketch-3d;
+  font-size: 100px;
+}
+
+.cell {
+  font-family: bubblegum;
+  font-size: 100px;
+  padding-left: 48px;
+  padding-top: 8px;
+  color:  yellow;
+
+}
+
+.cell:hover {
+  background-color:  #d1d1e0;
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: #737373;
+  color: white;
+}
+
+.btn:hover{
+  background-color: #cccccc;
 }
